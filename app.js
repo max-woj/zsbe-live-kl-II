@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const TemperatureModel = require('./model/TemperatureModel');
-const eventEmitter = require('events');
 
 const app = express();
 app.use(express.static('public'));

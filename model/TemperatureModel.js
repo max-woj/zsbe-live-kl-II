@@ -1,16 +1,21 @@
 const fs = require('fs');
-const eventEmitter = require('events')
 class TemperatureModel {
     saveTemperatures(tempsToSave){
         console.warn('deprecated');
-        const tempsFromFile = JSON.parse(fs.readFileSync(`${__dirname}/temperatures.json`).toString());
+        const tempsFromFile = this.getTemperatures();
         const mergedArray = tempsFromFile.concat(tempsToSave);
         fs.writeFileSync(`${__dirname}/temperatures.json`, JSON.stringify(mergedArray));
-        eventEmitter.emit('database-updated');
     }
 
     getTemperatures(){
-        return JSON.parse(fs.readFileSync(`${__dirname}/temperatures.json`).toString());
+        let fileData;
+        try{
+            fileData = JSON.parse(fs.readFileSync(`${__dirname}/temperatures.json`).toString())
+        } catch {
+            fileData = [];
+        }
+
+        return fileData;
     }
 }
 
