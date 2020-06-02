@@ -8,11 +8,8 @@
 	<title>Temperatury</title>
 </head>
 <body>
-<form action="/temperatures" method="post">
-	<input type="text" name="temperatures"/>
-	<button type="submit">Submit</button>
-</form>
-
+	<input type="text" name="temperatures" id="temperature-value" value="10"/>
+	<button type="submit" id="temperatures-submit">Submit</button>
 <div id="mainChart"></div>
 <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js'></script>

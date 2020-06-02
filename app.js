@@ -7,7 +7,7 @@ temperaturesEmitter.setMaxListeners(2);
 
 const app = express();
 app.use(express.static('public'));
-app.use(bodyParser())
+app.use(bodyParser.json())
 
 app.get('/temperatures', (req, res) => {
     const temperatureModel = new TemperatureModel();
@@ -30,8 +30,9 @@ app.post('/temperatures', (req, res) => {
     const parseParams = (query) => {
         return query.split(',').map(val => Number(val));
     }
+    console.log(req.body);
+    const stringParam = req.body.temperatures;
 
-    const stringParam = req.body.temperatures
     const temps = parseParams(stringParam);
     const temperatureModel = new TemperatureModel(temperaturesEmitter);
 

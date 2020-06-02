@@ -17,7 +17,7 @@ class TemperatureModel {
     getTemperatures(){
         let fileData;
         try{
-            fileData = JSON.parse(fs.readFileSync(`${__dirname}/temperatures.json`).toString())
+            fileData = JSON.parse(fs.readFileSync(`${__dirname}/temperatures.json`).toString());
         } catch {
             fileData = [];
         }
